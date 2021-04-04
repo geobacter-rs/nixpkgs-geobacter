@@ -18,7 +18,7 @@ jobs:
         with:
           name: geobacter-rs
           authToken: '${{ secrets.CACHIX_AUTH_TOKEN }}'
-      - run: nix-build pkgs/default.nix -A nixpkgs.geobacterRustcLlvmPackages | cachix push geobacter-rs
+      - run: nix-build pkgs/default.nix -A geobacterRustcLlvmPackages | cachix push geobacter-rs
       - run: nix-shell --run "echo OK"
   rustc:
     needs: llvm
@@ -32,7 +32,7 @@ jobs:
         with:
           name: geobacter-rs
           authToken: '${{ secrets.CACHIX_AUTH_TOKEN }}'
-      - run: nix-build pkgs/default.nix -A nixpkgs.geobacterRustPackages.rustc | cachix push geobacter-rs
+      - run: nix-build pkgs/default.nix -A geobacterRustPackages.rustc | cachix push geobacter-rs
       - run: nix-shell --run "echo OK"
   cargo:
     needs: rustc
@@ -46,7 +46,7 @@ jobs:
         with:
           name: geobacter-rs
           authToken: '${{ secrets.CACHIX_AUTH_TOKEN }}'
-      - run: nix-build pkgs/default.nix -A nixpkgs.geobacterRustPackages.cargo | cachix push geobacter-rs
+      - run: nix-build pkgs/default.nix -A geobacterRustPackages.cargo | cachix push geobacter-rs
       - run: nix-shell --run "echo OK"
   rustfmt:
     needs: rustc
@@ -60,5 +60,5 @@ jobs:
         with:
           name: geobacter-rs
           authToken: '${{ secrets.CACHIX_AUTH_TOKEN }}'
-      - run: nix-build pkgs/default.nix -A nixpkgs.geobacterRustPackages.rustfmt | cachix push geobacter-rs
+      - run: nix-build pkgs/default.nix -A geobacterRustPackages.rustfmt | cachix push geobacter-rs
       - run: nix-shell --run "echo OK"
