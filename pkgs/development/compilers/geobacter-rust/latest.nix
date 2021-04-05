@@ -17,7 +17,8 @@ let
 in import ./default.nix {
   rustcVersion = "1.49.0";
   rustcRev = "9d588f50e16144b71ac2e3664eaaf426e4d461bf";
-  rustcSha256 = "1xag59kjbm2gr3vk4fj7p53s69mxkvr5vyb7wn1f788r7c7lalan";
+  rustcSha256 = "06gfr339fa4cywgbvfyys74fq9ak7pmxsw9k5cr1ybfb6jnkipv8";
+  rustcCommitDate = "2021-03-15";
   rustcVendorSha256 = "1yxddw91gaz50qrnf1mngr3k7f0gkyxkw0w44mz6n9rsi98kfcdv";
   # Not sure why these are different, since we vender the whole workspace.
   cargoVendorSha256 = "1r13afsqddx40xqz1figi0353zgy909ql5i76446ng70va3xwc22";

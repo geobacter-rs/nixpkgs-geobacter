@@ -1,6 +1,7 @@
 { rustcVersion
 , rustcSha256
 , rustcRev
+, rustcCommitDate
 , rustcVendorSha256
 , cargoVendorSha256
 , rustfmtVendorSha256
@@ -87,6 +88,7 @@
         version = rustcVersion;
         sha256 = rustcSha256;
         rev = rustcRev;
+        commitDate = rustcCommitDate;
         vendorSha256 = rustcVendorSha256;
         inherit enableRustcDev;
         inherit llvmShared llvmSharedForBuild llvmSharedForHost llvmSharedForTarget;
