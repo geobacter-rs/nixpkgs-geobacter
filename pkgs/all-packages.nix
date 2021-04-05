@@ -1,5 +1,6 @@
 self: super:
 {
+  makeGeobacterRustPlatform = self.callPackage ./development/compilers/geobacter-rust/make-rust-platform.nix {};
   geobacterLlvmPackages_latest = self.callPackage ./development/compilers/geobacter-rust/llvm ({
     inherit (self.stdenvAdapters) overrideCC;
     buildLlvmTools = self.buildPackages.llvmPackages_11.tools;
@@ -22,5 +23,4 @@ self: super:
   geobacterRust = self.geobacterRust_1_49;
   geobacterRustPackages = self.geobacterRust_1_49.packages.stable;
   geobacterRustPlatform = self.geobacterRustPackages.rustPlatform;
-  makeGeobacterRustPlatform = self.callPackage ./development/compilers/geobacter-rust/make-rust-platform.nix {};
 }
