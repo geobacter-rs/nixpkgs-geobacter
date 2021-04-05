@@ -18,7 +18,7 @@ self: super:
   };
   geobacterRust_1_49 = self.callPackage ./development/compilers/geobacter-rust/latest.nix {
     inherit (self.darwin.apple_sdk.frameworks) CoreFoundation Security;
-    inherit (self.makeGeobacterRustPlatform);
+    makeGeobacterRustPlatform = self.makeGeobacterRustPlatform;
   };
   geobacterRust = self.geobacterRust_1_49;
   geobacterRustPackages = self.geobacterRust_1_49.packages.stable;
