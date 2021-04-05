@@ -9,7 +9,7 @@
 
 let
   llvmAttrs = {
-    enableSharedLibraries = false;
+    enableSharedLibraries = true;
     enablePolly = true;
     buildType = "Release";
     enableAssertions = true;

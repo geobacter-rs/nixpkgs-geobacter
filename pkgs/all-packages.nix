@@ -11,7 +11,7 @@ self: super:
   geobacterLlvm_latest = self.geobacterLlvmPackages_latest.llvm;
   # The same LLVM that Geobacter uses, so you can install the LLVM tools w/o rebuilding.
   geobacterRustcLlvmPackages = self.geobacterLlvm_latest.override {
-    enableSharedLibraries = false;
+    enableSharedLibraries = true;
     enablePolly = true;
     buildType = "Release";
     enableAssertions = true;

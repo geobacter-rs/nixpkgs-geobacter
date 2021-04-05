@@ -117,8 +117,7 @@ in stdenv.mkDerivation rec {
     "${setHost}.cxx=${cxxForHost}"
     "${setTarget}.cxx=${cxxForTarget}"
   ] ++ optionals (!withBundledLLVM) [
-    # TODO Shared LLVM segfaults? Disabling til that is solved.
-    # "--enable-llvm-link-shared"
+    "--enable-llvm-link-shared"
     "${setBuild}.llvm-config=${llvmSharedForBuild}/bin/llvm-config"
     "${setHost}.llvm-config=${llvmSharedForHost}/bin/llvm-config"
     "${setTarget}.llvm-config=${llvmSharedForTarget}/bin/llvm-config"
@@ -148,8 +147,7 @@ in stdenv.mkDerivation rec {
   postPatch = ''
     patchShebangs src/etc configure
 
-    # Rust needs llvm-project/libunwind w/ static LLVM
-    # ${optionalString (!withBundledLLVM) "rm -rf src/llvm-project"}
+    ${optionalString (!withBundledLLVM) "rm -rf src/llvm-project"}
 
     # Fix the configure script to not require curl as we won't use it
     sed -i configure \
